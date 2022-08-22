@@ -1,0 +1,10 @@
+table {
+    table-layout: fixed;
+    }
+.place {
+    width: 120px;
+    }
+td.int {
+    text-align: right;
+    }
+
