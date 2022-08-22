@@ -8,3 +8,32 @@ td.int {
     text-align: right;
     }
 
+@media screen and (max-width: 640px) {
+    table th{
+        display:none;
+    }
+    .tb01 {
+        width: 100%;
+    }
+    table.tb01 td {
+        display: block;
+        width: 100%;
+        border-bottom:none;
+    }
+    table.tb01 td:first-child{
+        background: #e9727e;
+        color:#fff;
+        font-weight:bold;
+    }
+    table.tb01 td:before{
+        content: attr(data-label);
+        font-size: .7rem;
+        font-weight:bold;
+        color: #999;
+        display: block;
+    }
+    
+    .tb01 tr:last-child{
+        border-bottom: solid 1px #ccc;
+    }
+    }

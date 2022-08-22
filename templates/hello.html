@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -12,7 +11,6 @@
 	<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
 
 <body style="padding-top: 5rem">
 	<nav class="navbar navbar-expand flex-md-row navbar-dark bg-dark fixed-top">
@@ -70,28 +68,42 @@
 	<div style="padding-top: 1rem"><button type="submit">絞り込む</button></div>
  -->
 	<div class="table_frame">
-	  <table class="table table-hover align-middle" id="sampleTable">
+	  <table class="table tb01 table-hover align-middle">
 		<thead>
-			<tr>
-				<th cmanFilterBtn>社名</th>
-				<th cmanFilterBtn class="place">期末日</th>
-				<th cmanFilterBtn class="place">監査報酬</th>
-				<th cmanFilterBtn>監査法人</th>
-				<th cmanFilterBtn>KAM1</th>
-				<th cmanFilterBtn>KAM2</th>
-				<th cmanFilterBtn>KAM3</th>
-				<th cmanFilterBtn>KAM4</th>
-				<th cmanFilterBtn>KAM5</th>
+			<tr class="head">
+				<th>社名</th>
+				<th class="place">期末日</th>
+				<th class="place">監査報酬</th>
+				<th>監査法人</th>
+				<th>KAM1</th>
+				<th>KAM2</th>
+				<th>KAM3</th>
+				<th>KAM4</th>
+				<th>KAM5</th>
 			</tr>
 		</thead>
 		<tbody>
 			{% for i in record: %}
 			<tr>
 				{% for j in i: %}
-				{% if j|int != 0  %}
-				<td class="int">{{ '{:,}'.format(j) }}</td>
-				{% else %}
+				{% if loop.index == 1 %}
 				<td>{{ j }}</td>
+				{% elif loop.index == 2 %}
+				<td data-label="期末日">{{ j }}</td>
+				{% elif loop.index == 3 %}
+				<td data-label="監査報酬">{{ '{:,}'.format(j) }}</td>
+				{% elif loop.index == 4 %}
+				<td data-label="監査法人">{{ j }}</td>
+				{% elif loop.index == 5 %}
+				<td data-label="KAM1">{{ j }}</td>
+				{% elif loop.index == 6 %}
+				<td data-label="KAM2">{{ j }}</td>
+				{% elif loop.index == 7 %}
+				<td data-label="KAM3">{{ j }}</td>
+				{% elif loop.index == 8 %}
+				<td data-label="KAM4">{{ j }}</td>
+				{% elif loop.index == 9 %}
+				<td data-label="KAM5">{{ j }}</td>
 				{% endif %}
 				{% endfor %}
 			</tr>
