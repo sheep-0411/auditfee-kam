@@ -8,6 +8,10 @@ td.int {
     text-align: right;
     }
 
+.container-fluid {
+    width:3000px;
+}
+
 @media screen and (max-width: 640px) {
     table th{
         display:none;
@@ -36,4 +40,10 @@ td.int {
     .tb01 tr:last-child{
         border-bottom: solid 1px #ccc;
     }
+    .container-fluid {
+        width:100%;
     }
+    }
+
+
+    

@@ -59,7 +59,7 @@ def get_records(wks):
 df5 = get_records(wks5)
 df5['監査報酬'] = df5['当年度監査報酬'] + df5['当年度監査報酬（ネットワークファーム）']
 df5 = df5[pd.to_datetime(df5['期末日'])  > dt.datetime(2021,4,1)]
-df5 = df5[['会社名','期末日','監査報酬','監査法人','KAM1','KAM2','KAM3','KAM4','KAM5']].sort_values('監査報酬',ascending=False)
+df5 = df5[['会社名','期末日','監査報酬','当年度監査報酬（ネットワークファーム）','監査法人','KAM1','KAM2','KAM3','KAM4','KAM5']].sort_values('監査報酬',ascending=False)
 # df6 = get_records(wks6)
 # df7 = get_records(wks7)
 auditor = df5['監査法人'].drop_duplicates().tolist()
@@ -84,7 +84,11 @@ def post_world():
     df5 = get_records(wks5)
     df5['監査報酬'] = df5['当年度監査報酬'] + df5['当年度監査報酬（ネットワークファーム）']
     df5 = df5[pd.to_datetime(df5['期末日'])  > dt.datetime(2021,4,1)]
-    df5 = df5[['会社名','期末日','監査報酬','監査法人','KAM1','KAM2','KAM3','KAM4','KAM5']].sort_values('監査報酬',ascending=bool(int(name) == 1))
+    df5 = df5[['会社名','期末日','監査報酬','当年度監査報酬（ネットワークファーム）','監査法人','KAM1','KAM2','KAM3','KAM4','KAM5']].sort_values('監査報酬',ascending=bool(int(name) == 1))
     header = df5.columns # DataFrameのカラム名の1次元配列のリスト
     record = df5.values.tolist() # DataFrameのインデックスを含まない全レコードの2次元配列のリスト
     return render_template('hello.html',header=header, record=record, auditor=auditor)
+
+# @app.route("/detail/<name>", methods=['GET'])
+# def detail(name):
+#     return render_template('detail.html',name=name)
