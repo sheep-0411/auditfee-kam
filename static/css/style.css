@@ -43,6 +43,11 @@ td.int {
     .container-fluid {
         width:100%;
     }
+
+    td.int {
+        text-align: left;
+        }
+
     }
 
 
